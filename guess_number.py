@@ -1,5 +1,5 @@
 number = 10
-
+limited_guess = 5
 print("I'm thinking of a number...")
 guess = (input("What number am I thinking of? "))
 
@@ -8,12 +8,20 @@ if guess == str(number):
 if guess == 'q':
     print(f'The number was {number}')  
 else:
-    while guess != str(number):
+    limited_guess -= 1
+    if guess != str(number):
+        print(f'You have {limited_guess} left')
+    while guess != str(number) and limited_guess <= 5:
+        limited_guess -= 1
         guess = (input("Sorry try again. What number am I thinking of? "))
+        print(f'You have {limited_guess} left')
         if guess == 'q':
             print(f'The number was {number}')
             break
+        if limited_guess == 0:
+            print(f'The number was {number}')
+            break
         if int(guess) == number:
-                print("Congratulations! You guessed the right number.")
+            print("Congratulations! You guessed the right number.")
 
 
