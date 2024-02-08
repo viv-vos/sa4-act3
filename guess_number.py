@@ -21,6 +21,14 @@ else:
         if limited_guess == 0:
             print(f'The number was {number}')
             break
+        elif int(guess) == number:
+            print("Congratulations! You guessed the right number.")
+            break
+        else:
+            if int(guess) < number:
+                print('Your guess was too low')
+            elif int(guess) > number:
+                print('Your guess was too high')
         if int(guess) == number:
             print("Congratulations! You guessed the right number.")
 
